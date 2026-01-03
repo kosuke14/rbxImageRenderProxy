@@ -1,0 +1,24 @@
+{
+  "name": "newimggrabber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chromium": "^3.0.3",
+    "express": "^4.18.1",
+    "fetch": "^1.1.0",
+    "file-type": "^17.1.2",
+    "FileReader": "^0.10.2",
+    "jimp": "^1.6.0",
+    "node-fetch": "^3.2.6",
+    "node-html-to-image": "^5.0.0",
+    "puppeteer": "^24.34.0",
+    "sharp": "^0.34.5"
+  }
+}

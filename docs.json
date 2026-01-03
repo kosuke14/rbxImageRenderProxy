@@ -1,0 +1,68 @@
+{
+  "version":null,
+  "docs":{
+    "ping":{
+      "url":"/ping",
+      "method":"GET",
+      "description":"Ping pong with your client.",
+      "output":"online",
+      "args":{}
+    },
+    "querytest":{
+      "url":"/querytest",
+      "method":"GET",
+      "description":"im so new on js lol",
+      "output":"here is ur query params: {\"query\":\"ur query\"}",
+      "args":{
+        "query":{
+          "description":"you can put anything",
+          "type":"query",
+          "default":null,
+          "required":false
+        }
+      }
+    },
+    "image":{
+      "url":"/image",
+      "method":"GET",
+      "description":"Get imagedata json in pixel(s) and rgb image: x table in y pos.",
+      "output":"{\"size\":[x, y],\"colors\":[[[r,g,b],...]]}",
+      "args":{
+        "src":{
+          "description":"Source of the image in url (string).",
+          "type":"query",
+          "default":null,
+          "required":true
+        }
+      }
+    },
+    "image/size":{
+      "url":"/image/size",
+      "method":"GET",
+      "description":"Get imagedata json in pixel(s) but only size.",
+      "output":"{\"size\":[x, y]}",
+      "args":{
+        "src":{
+          "description":"Source of the image in url (string).",
+          "type":"query",
+          "default":null,
+          "required":true
+        }
+      }
+    },
+    "image/colors":{
+      "url":"/image/colors",
+      "method":"GET",
+      "description":"Get imagedata json in pixel(s) and rgb image: x table in y pos but only colors.",
+      "output":"{\"colors\":[[[r,g,b],...]]}",
+      "args":{
+        "src":{
+          "description":"Source of the image in url (string).",
+          "type":"query",
+          "default":null,
+          "required":true
+        }
+      }
+    }
+  }
+}
