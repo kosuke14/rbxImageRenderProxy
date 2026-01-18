@@ -5,3 +5,9 @@ a bit vibe coded and ~~it contains japanese comments~~translated. i was lazy
 > ! docs.json is not fully documented !
 
 The rbxl file contains my rendering server link for demo but I will disable it if my server is going to explode 🤯
+### Example Images/Links
+no javascript and not so large image/website is recommended<br/>
+- https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png
+- https://example.com
+- https://motherfuckingwebsite.com
+- https://en.uncyclopedia.co/wiki/Roblox
