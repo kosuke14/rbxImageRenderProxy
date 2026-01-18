@@ -13,12 +13,12 @@ const fetch = (...args) =>
 const app = express();
 
 /* ==============================
-   設定
+   Config
 ============================== */
 
 const PORT = 3099;
-const MAX_CONCURRENT = 4;              // 最大同時画像処理数
-const MAX_IMAGE_PIXELS = 4_000_000;     // 4MP制限（DoS対策）
+const MAX_CONCURRENT = 4;              // max image processors
+const MAX_IMAGE_PIXELS = 4_000_000;     // for DOS protection
 
 const SUPPORTED_MIME = new Set([
   'image/png',
@@ -31,7 +31,7 @@ const SUPPORTED_MIME = new Set([
 ]);
 
 /* ==============================
-   並列制御（セマフォ）
+   Parallel semaphore
 ============================== */
 
 class Semaphore {
@@ -61,7 +61,7 @@ class Semaphore {
 const imageSemaphore = new Semaphore(MAX_CONCURRENT);
 
 /* ==============================
-   ユーティリティ
+   utils
 ============================== */
 
 async function fetchImageBuffer(src) {
@@ -144,7 +144,7 @@ function collectLinks() {
   };
 
   const collectFromDocument = (doc, offsetX, offsetY) => {
-    // 通常要素
+    // commons
     for (const el of doc.querySelectorAll('*')) {
       if (!isClickable(el)) continue;
 
@@ -320,7 +320,7 @@ async function renderHtmlUrlToImage(src) {
     });
 
     await page.goto(src, {
-      waitUntil: 'networkidle0', // JS/CSS/画像が全部来るまで待つ
+      waitUntil: 'networkidle0', // wait for everything load
       timeout: 15_000,
     });
 
@@ -361,10 +361,10 @@ async function renderHtmlUrlToImageWithLinks(src) {
       timeout: 15_000,
     });
 
-    // 🔽 リンク情報を先に取得
+    // collect links first
     const links = await page.evaluate(collectLinks);
 
-    // 🔽 画像化
+    // get an image
     const image = await page.screenshot({
       type: 'png',
       fullPage: true,
@@ -393,7 +393,7 @@ async function normalizeHtmlImage(buffer) {
 }
 
 /* ==============================
-   ルート
+   Routing
 ============================== */
 
 app.get('/', (_, res) => {
@@ -429,7 +429,7 @@ app.get('/help', async (_, res) => {
 });
 
 /* ==============================
-   画像API
+   Images
 ============================== */
 
 app.get('/image', async (req, res) => {
@@ -609,7 +609,7 @@ app.get('/html/converttopng', async (req, res) => {
 });
 
 /* ==============================
-   エラー処理
+   Error Handling
 ============================== */
 
 app.use((_, res) => {
@@ -622,7 +622,7 @@ app.use((err, _, res, __) => {
 });
 
 /* ==============================
-   起動
+   Start
 ============================== */
 
 app.listen(PORT, () => {
