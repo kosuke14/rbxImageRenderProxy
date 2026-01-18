@@ -6,7 +6,7 @@ a bit vibe coded and ~~it contains japanese comments~~translated. i was lazy
 
 The rbxl file contains my rendering server link for demo but I will disable it if my server is going to explode 🤯
 ### Example Images/Links
-no javascript and not so large image/website is recommended<br/>
+no javascript and not so large image/website is recommended (large website and images are restricted)<br/>
 - https://upload.wikimedia.org/wikipedia/commons/6/63/Wikipedia-logo.png
 - https://example.com
 - https://motherfuckingwebsite.com
